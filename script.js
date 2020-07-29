@@ -25,7 +25,6 @@ function createColor() {
         COLORS.push(rgb);
     }
     COLORS = COLORS.concat(COLORS);
-    console.log(COLORS);
 }
 createColor();
 
