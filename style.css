@@ -1,0 +1,120 @@
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: slateblue;
+}
+
+body {
+    background-color: wheat;
+}
+
+.stat {
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    margin: 0 auto;
+}
+
+#divProcessing {
+    display: none;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+#divGameOver {
+    display: none;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+#game .box {
+    position: relative;
+    border: 1px solid grey;
+    border-radius: 5px;
+    width: 15%;
+    height: 200px;
+    margin: 10px;
+    display: inline-block;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 1px 1px 5px mediumpurple;
+    transition: all 0.3s;
+    transform-style: preserve-3d;
+}
+
+#game .front,
+#game .back {
+    position: absolute;
+    margin: 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#game .front {
+    background-color: brown;
+}
+
+#game .front:before {
+    content: "?";
+    font-size: 7rem;
+    font-weight: bold;
+    color: Cornsilk;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#game .back {
+    transform: rotateY(180deg);
+}
+
+#game .flipped {
+    transform: rotateY(180deg);
+}
+
+#buttons {
+    display: flex;
+    justify-content: center;
+}
+
+#scoreWrap {
+    display: flex;
+    justify-content: center;
+}
+
+#time,
+#count {
+    margin: 1rem 5rem;
+    width: 20rem;
+    height: 2rem;
+    line-height: 2rem;
+    text-align: center;
+    font-size: 1.7rem;
+}
+
+#time span,
+#count span {
+    width: 4rem;
+}
+
+#start,
+#reset {
+    cursor: pointer;
+    background-color: teal;
+    font-size: 3rem;
+    color: orange;
+    padding: 0.6rem;
+    margin: 1.5rem 4rem;
+    box-shadow: 2px 2px 5px black;
+    border-radius: 10px;
+    transition: all 0.2s;
+}
+
+#start.started {
+    cursor: default;
+    background-color: grey;
+    color: #cccccc;
+}
