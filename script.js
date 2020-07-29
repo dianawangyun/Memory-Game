@@ -141,7 +141,7 @@ createDivsForColors(shuffledColors);
 function updateScore() {
     // get high score
     let score = getScore();
-    if (score === []) {
+    if (score.length === 0) {
         score.push({ click: count, time: time });
     } else {
         if (count !== 0) {
