@@ -16,12 +16,23 @@ let flipCount = 0;
 
 let COLORS = [];
 
+function UniqueRandoms(targetCount) {
+    let randoms = [];
+    while (randoms.length < targetCount) {
+        var temp = Math.round(Math.random() * 10) * 25;
+        if (randoms.indexOf(temp) == -1)
+            randoms.push(temp);
+    }
+    return randoms;
+}
+
 function createColor() {
-    for (i = 0; i < 6; i++) {
-        let r = Math.round(Math.random() * 25) * 10;
-        let g = Math.round(Math.random() * 25) * 10;
-        let b = Math.round(Math.random() * 25) * 10;
-        let rgb = `rgb(${r},${g},${b})`;
+    var rs = UniqueRandoms(6);
+    var gs = UniqueRandoms(6);
+    var bs = UniqueRandoms(6);
+
+    for (let i = 0; i < 6; i++) {
+        let rgb = `rgb(${rs[i]},${gs[i]},${bs[i]})`;
         COLORS.push(rgb);
     }
     COLORS = COLORS.concat(COLORS);
@@ -78,8 +89,6 @@ function myTimer() {
     time = time + 1;
     playTime.innerHTML = `${time}S`;
 }
-
-
 
 function handleCardClick(event) {
     if (isProcessing) return;
