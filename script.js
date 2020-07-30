@@ -19,7 +19,7 @@ let COLORS = [];
 function UniqueRandoms(targetCount) {
     let randoms = [];
     while (randoms.length < targetCount) {
-        var temp = Math.round(Math.random() * 10) * 25;
+        let temp = Math.round(Math.random() * 10) * 25;
         if (randoms.indexOf(temp) == -1)
             randoms.push(temp);
     }
@@ -27,10 +27,10 @@ function UniqueRandoms(targetCount) {
 }
 
 function createColor() {
-    var rs = UniqueRandoms(6);
-    var gs = UniqueRandoms(6);
-    var bs = UniqueRandoms(6);
-
+    let rs = UniqueRandoms(6);
+    let gs = UniqueRandoms(6);
+    let bs = UniqueRandoms(6);
+    COLORS = [];
     for (let i = 0; i < 6; i++) {
         let rgb = `rgb(${rs[i]},${gs[i]},${bs[i]})`;
         COLORS.push(rgb);
@@ -55,7 +55,6 @@ function shuffle(array) {
         array[counter] = array[index];
         array[index] = lastCard;
     }
-
     return array;
 }
 
@@ -72,6 +71,7 @@ function createDivsForColors(colorArray) {
         const back = document.createElement("div");
         back.classList.add("back");
         newBox.append(back, front);
+        gameContainer.append(newBox);
 
         // click start to activate the div click
         start.addEventListener("click", function() {
@@ -81,12 +81,11 @@ function createDivsForColors(colorArray) {
                 timeId = setInterval(myTimer, 1000);
             }
         })
-        gameContainer.append(newBox);
     }
 }
 
 function myTimer() {
-    time = time + 1;
+    time++;
     playTime.innerHTML = `${time}S`;
 }
 
@@ -185,7 +184,6 @@ reset.addEventListener("click", function() {
         clearInterval(timeId);
         clickCount.innerHTML = "";
         playTime.innerHTML = "";
-        COLORS = [];
         createColor();
         shuffledColors = shuffle(COLORS);
         createDivsForColors(shuffledColors);
